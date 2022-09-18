@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Outlet } from "react-router-dom";
+import React from "react";
+import Navbar from "./Components/Navbar";
+import { useCollection } from "react-firebase-hooks/firestore";
+import { collection } from "firebase/firestore";
+import { db } from "./FirebaseConfig";
 
+// const stepArray = ["Prepare", "Confirm", "Sorting", "Shipping", "Transport"];
+export const Context = React.createContext(null);
 function App() {
+  const [POvalue, loadingPO, errorPO] = useCollection(collection(db, "PO"));
+
+  const [stepArray, loading, error] = useCollection(collection(db, "Process"));
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Context.Provider value={{ POvalue, stepArray }}>
+      <div className="flex space-x-5 bg-gray-200 min-h-screen  pl-[250px]">
+        <Navbar />
+        <Outlet />
+      </div>
+    </Context.Provider>
   );
 }
 
