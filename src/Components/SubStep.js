@@ -18,7 +18,11 @@ function SubStep({ stepArray, poStep, step, updatePoStep }) {
 
       updatePoStep((step) =>
         step.map((obj, idx) => {
-          if (idx === subStepIndex) return { ...obj, subStep: subStepArray };
+          if (idx === subStepIndex) {
+            return { ...obj, subStep: subStepArray };
+          } else {
+            return { ...obj };
+          }
         })
       );
       let checkStatus = [...isChecked];

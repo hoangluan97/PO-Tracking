@@ -12,6 +12,14 @@ function Plan() {
   //   useEffect(() => {
   //     poContent = poData.map((po) => <SinglePO key={po.id} poInformation={po} />);
   //   }, [poData]);
+  useEffect(() => {
+    if (poData.length) {
+      let poContentfilter = POvalue.docs?.filter((value) =>
+        value.id.includes(searchValue)
+      );
+      setPoData(poContentfilter);
+    }
+  }, [POvalue]);
   const [searchValue, setSearchValue] = useState("");
   const handleSearch = (e) => {
     e.preventDefault();
@@ -19,11 +27,10 @@ function Plan() {
       value.id.includes(searchValue)
     );
     setPoData(poContentfilter);
-    console.log(poData);
     // poContent = poData.map((po) => <SinglePO key={po.id} poInformation={po} />);
   };
   return (
-    <div className="mt-5 ml-5 h-[120px]">
+    <div className="mt-5 ml-5 h-[120px] w-full">
       <form className="space-x-3">
         <input
           type="text"
@@ -38,7 +45,7 @@ function Plan() {
           Tìm kiếm
         </button>
       </form>
-      <div className="space-y-3 mt-3">{poContent}</div>
+      <div className="space-y-3 mt-3 w-[80%]">{poContent}</div>
     </div>
   );
 }

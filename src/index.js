@@ -7,6 +7,8 @@ import CreatePo from "./Components/CreatePo";
 import TrackingPo from "./Components/TrackingPo";
 import CustomPO from "./Components/CustomPO";
 import Plan from "./Components/Plan";
+import OngoingWork from "./Components/OngoingWork";
+import WareHouse from "./Components/WareHouse";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -18,6 +20,8 @@ root.render(
           <Route path="tracking" element={<TrackingPo />} />
           <Route path="custom" element={<CustomPO />} />
           <Route path="plan" element={<Plan />} />
+          <Route path="work" element={<OngoingWork />} />
+          <Route path="ware" element={<WareHouse />} />
         </Route>
       </Routes>
     </BrowserRouter>

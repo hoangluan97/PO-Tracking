@@ -2,20 +2,19 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
-  const initialState = Array(3).fill("");
+  const initialState = Array(5).fill("");
   initialState.unshift("underline");
-  console.log(initialState);
   const [activeLink, setActiveLink] = useState(initialState);
 
   const handleOnlick = (index) => {
-    const activeArr = Array(4).fill("");
+    const activeArr = Array(6).fill("");
     activeArr[index] = "underline";
     setActiveLink(activeArr);
   };
   return (
-    <div className="flex justify-start items-center flex-col text-white w-[250px] border h-screen bg-green-600 fixed top-0 left-0">
-      <p className="my-10  text-[30px] font-bold">Chức năng</p>
-      <div className="flex flex-col text-[22px] font-bold space-y-4">
+    <div className=" justify-center items-center  text-white w-screen border h-16 bg-green-600 fixed top-0 left-0 flex">
+      {/* <p className="my-10  text-[30px] font-bold">Chức năng</p> */}
+      <div className="flex text-[18px] justify-center font-medium space-x-4">
         <div>
           <Link
             className={activeLink[0]}
@@ -37,14 +36,28 @@ function Navbar() {
           onClick={() => handleOnlick(2)}
           to="/custom"
         >
-          Tạo Bước
+          Tạo Quy Trình
         </Link>
         <Link
           className={activeLink[3]}
           onClick={() => handleOnlick(3)}
           to="/plan"
         >
+          Sản xuất
+        </Link>
+        <Link
+          className={activeLink[4]}
+          onClick={() => handleOnlick(4)}
+          to="/work"
+        >
           Kế hoạch
+        </Link>
+        <Link
+          className={activeLink[5]}
+          onClick={() => handleOnlick(5)}
+          to="/ware"
+        >
+          Kho
         </Link>
       </div>
     </div>

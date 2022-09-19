@@ -14,7 +14,7 @@ function App() {
   const [stepArray, loading, error] = useCollection(collection(db, "Process"));
   return (
     <Context.Provider value={{ POvalue, stepArray }}>
-      <div className="flex space-x-5 bg-gray-200 min-h-screen  pl-[250px]">
+      <div className="flex space-x-5 bg-gray-200 h-fit min-h-screen pt-16 min-w-[1000px]">
         <Navbar />
         <Outlet />
       </div>

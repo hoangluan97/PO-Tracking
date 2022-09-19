@@ -31,7 +31,7 @@ function CreatePo() {
     }
   };
   return (
-    <div className="mt-8 flex flex-col justify-start items-center space-y-4 w-full">
+    <div className="mt-8 flex flex-col justify-start items-center space-y-4 w-full h-full">
       <div className="space-y-4 border-2 p-4 rounded-lg bg-white">
         <form
           action=""
@@ -62,7 +62,7 @@ function CreatePo() {
         />
       </div>
 
-      <div className="min-h-fit min-w-fit border-2 border-green-500 flex justify-center items-center bg-white rounded-lg p-2">
+      <div className="min-h-fit min-w-fit w-[600px] h-[200px] border-2 border-green-500 flex justify-center items-center bg-white rounded-lg p-2 flex-wrap max-w-[80%]">
         <StepBoard
           stepArray={stepArray}
           poStep={poStep}

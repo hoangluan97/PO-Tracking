@@ -1,8 +1,8 @@
 import React from "react";
 import StepBoard from "./StepBoard";
 import { db } from "../FirebaseConfig";
-import { deleteDoc, doc, setDoc, updateDoc } from "firebase/firestore";
-function SinglePO({ poInformation }) {
+import { doc, updateDoc } from "firebase/firestore";
+function POPlan({ poInformation }) {
   let currentIndex = poInformation
     ?.data()
     .process.findIndex(
@@ -18,8 +18,7 @@ function SinglePO({ poInformation }) {
         currentStep: poInformation?.data().process[currentIndex].nameStep,
       });
     } else {
-      setDoc(doc(db, "WareHouse", poInformation.id), poInformation.data());
-      deleteDoc(doc(db, "PO", poInformation.id));
+      currentIndex = poInformation?.data().process.length - 1;
     }
   };
   const handlePreviousStep = () => {
@@ -29,10 +28,6 @@ function SinglePO({ poInformation }) {
         currentStep: poInformation?.data().process[currentIndex].nameStep,
       });
     }
-  };
-  const handleAddPlan = () => {
-    setDoc(doc(db, "Plan", poInformation.id), poInformation.data());
-    deleteDoc(doc(db, "PO", poInformation.id));
   };
   return (
     <div className="flex items-center justify-around space-x-3 rounded-md border-2 border-green-400 min-h-[120px] bg-white w-[100%]">
@@ -58,15 +53,9 @@ function SinglePO({ poInformation }) {
         >
           Trở về
         </button>
-        <button
-          className="border min-h-fit text-[13px] font-medium rounded-md w-24 h-12 bg-green-500 text-white"
-          onClick={handleAddPlan}
-        >
-          Thêm
-        </button>
       </div>
     </div>
   );
 }
 
-export default SinglePO;
+export default POPlan;
