@@ -19,7 +19,7 @@ function Navbar() {
           <Link
             className={activeLink[0]}
             onClick={() => handleOnlick(0)}
-            to="/"
+            to="/PO-Tracking"
           >
             Tạo PO
           </Link>
@@ -27,35 +27,35 @@ function Navbar() {
         <Link
           className={activeLink[1]}
           onClick={() => handleOnlick(1)}
-          to="/tracking"
+          to="/PO-Tracking/tracking"
         >
           Theo dõi PO
         </Link>
         <Link
           className={activeLink[2]}
           onClick={() => handleOnlick(2)}
-          to="/custom"
+          to="/PO-Tracking/custom"
         >
           Tạo Quy Trình
         </Link>
         <Link
           className={activeLink[3]}
           onClick={() => handleOnlick(3)}
-          to="/plan"
+          to="/PO-Tracking/plan"
         >
           Sản xuất
         </Link>
         <Link
           className={activeLink[4]}
           onClick={() => handleOnlick(4)}
-          to="/work"
+          to="/PO-Tracking/work"
         >
           Kế hoạch
         </Link>
         <Link
           className={activeLink[5]}
           onClick={() => handleOnlick(5)}
-          to="/ware"
+          to="/PO-Tracking/ware"
         >
           Kho
         </Link>
