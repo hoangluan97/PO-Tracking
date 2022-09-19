@@ -22,6 +22,7 @@ root.render(
           <Route path="plan" element={<Plan />} />
           <Route path="work" element={<OngoingWork />} />
           <Route path="ware" element={<WareHouse />} />
+          <Route path="*" element={<CreatePo />} />
         </Route>
       </Routes>
     </BrowserRouter>
