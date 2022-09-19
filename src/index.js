@@ -15,7 +15,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/PO-Tracking" element={<App />}>
           <Route index element={<CreatePo />} />
           <Route path="tracking" element={<TrackingPo />} />
           <Route path="custom" element={<CustomPO />} />
