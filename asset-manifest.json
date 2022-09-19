@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PO-Tracking/static/css/main.9ccf2516.css",
-    "main.js": "/PO-Tracking/static/js/main.7e6bb505.js",
+    "main.js": "/PO-Tracking/static/js/main.71b450f9.js",
     "index.html": "/PO-Tracking/index.html",
     "main.9ccf2516.css.map": "/PO-Tracking/static/css/main.9ccf2516.css.map",
-    "main.7e6bb505.js.map": "/PO-Tracking/static/js/main.7e6bb505.js.map"
+    "main.71b450f9.js.map": "/PO-Tracking/static/js/main.71b450f9.js.map"
   },
   "entrypoints": [
     "static/css/main.9ccf2516.css",
-    "static/js/main.7e6bb505.js"
+    "static/js/main.71b450f9.js"
   ]
 }
