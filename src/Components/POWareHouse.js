@@ -17,7 +17,7 @@ function POWareHouse({ poInformation }) {
           currentStep={poInformation?.data().currentStep}
         />
       </div>
-      <div className="flex space-x-2 items-center p-1 w-[20%]">
+      <div className="flex space-x-2 items-center justify-center p-1 w-[20%]">
         <button
           className="border min-h-fit text-[13px] font-medium rounded-md w-24 h-12 bg-green-500 text-white"
           onClick={handledDelete}
