@@ -1,34 +1,8 @@
 import React from "react";
 import StepBoard from "./StepBoard";
 import { db } from "../FirebaseConfig";
-import { deleteDoc, doc, updateDoc } from "firebase/firestore";
+import { deleteDoc, doc } from "firebase/firestore";
 function POWareHouse({ poInformation }) {
-  let currentIndex = poInformation
-    ?.data()
-    .process.findIndex(
-      (value) => value.nameStep === poInformation?.data().currentStep
-    );
-  console.log(poInformation.data());
-
-  const handleNextStep = () => {
-    console.log(poInformation?.data().currentStep);
-    currentIndex = currentIndex + 1;
-    if (currentIndex < poInformation?.data().process.length) {
-      updateDoc(doc(db, "PO", poInformation.id), {
-        currentStep: poInformation?.data().process[currentIndex].nameStep,
-      });
-    } else {
-      currentIndex = poInformation?.data().process.length - 1;
-    }
-  };
-  const handlePreviousStep = () => {
-    if (currentIndex > 0) {
-      currentIndex = currentIndex - 1;
-      updateDoc(doc(db, "PO", poInformation.id), {
-        currentStep: poInformation?.data().process[currentIndex].nameStep,
-      });
-    }
-  };
   const handledDelete = () => {
     deleteDoc(doc(db, "WareHouse", poInformation.id));
   };
@@ -44,18 +18,6 @@ function POWareHouse({ poInformation }) {
         />
       </div>
       <div className="flex space-x-2 items-center p-1 w-[20%]">
-        <button
-          className="border min-h-fit text-[13px] font-medium rounded-md w-24 h-12 bg-green-500 text-white"
-          onClick={handleNextStep}
-        >
-          Chuyển bước
-        </button>
-        <button
-          className="border min-h-fit text-[13px] font-medium rounded-md w-24 h-12 bg-green-500 text-white"
-          onClick={handlePreviousStep}
-        >
-          Trở về
-        </button>
         <button
           className="border min-h-fit text-[13px] font-medium rounded-md w-24 h-12 bg-green-500 text-white"
           onClick={handledDelete}
